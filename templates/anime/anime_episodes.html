@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Episodes</title>
+</head>
+<body>
+    <h1>episodes</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>episode</td>
+                <td>season</td>
+                <td>airdate</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for res in response %}
+            <tr>
+                <td>{{res.attributes.number}}</td>
+                <td>{{res.attributes.titles.en_us}}</td>
+                <td>{{res.attributes.seasonNumber}}</td>
+                <td>{{res.attributes.airdate}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
