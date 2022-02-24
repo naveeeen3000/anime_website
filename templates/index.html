@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to Manga and Anime site</h1>
+    <form action="">
+        <label for="search">Search anime or mange (or both)</label>
+        <input type="text" name="search" id="search">
+        <input type="submit" name="" id="" value="search">
+    </form>
+    <div class="anime_details">
+        {% for res in response %}
+        <img src="{{res.attributes.posterImage.tiny}}" alt="not found">
+        <h1>{{res.attributes.titles.en}}</h1>
+        <p>{{res.attributes.description}}</p>
+
+        <hr>
+        {% endfor %}
+    </div>
+</body>
+</html>
