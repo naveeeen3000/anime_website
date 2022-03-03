@@ -10,7 +10,11 @@
     <h1>Welcome to the site</h1>
     <div>
         <a href="{% url 'anime:anime_home' %}"><button>Anime</button></a>
-        <a href=""><button> Manga </button></a>
+        <a href="{% url 'manga:manga_home' %}"><button> Manga </button></a>
+        <div class="manga-div">
+            {% block manga_block%}
+            {% endblock %}
+        </div>
     </div>
 </body>
 </html>

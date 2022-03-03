@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+
+{% block manga_block%}
+
+<h1>Manga</h1>
+<div class="trending-section">
+    
+    <ol>
+        {% for res in response%}
+        <li><b><h3>{{res.attributes.titles.en}}</h3></b></li>
+        <form mathod="POST">
+            {% csrf_token %}
+            <input type="text" name="url" id="url" hidden>
+            <button type="submit"><img type="image" src="{{ res.attributes.posterImage.tiny}}" alt="{{ res.attributes.slug }}"></button>
+        </form>
+        {% endfor %}    
+    </ol>
+</div>
+
+{% endblock %}
