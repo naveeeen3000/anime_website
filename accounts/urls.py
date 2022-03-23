@@ -5,5 +5,6 @@ app_name="accounts"
 
 urlpatterns=[
 
-    path('signin/',views.SigninView,name='signin'),
+    path('signin/',views.SignupView,name='signup'),
+    path('login/',views.LoginView,name="login")
 ]
