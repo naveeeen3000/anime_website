@@ -4,11 +4,11 @@ import json
 # Create your views here.
 
 
-def index(request):
+def TrendingMangaView(request):
     out={}
-    if request.method=="GET":
-        params={"filter[text]":request.GET.get('search',"")}
-        res=requests.get("https://kitsu.io/api/edge/anime/",params=params)
-        print(res.url)
+    url="https://kitsu.io/api/edge/trending/manga"
+    res=requests.get(url)
+    if res:
         res=res.json()['data']
-    return render(request,"index.html",context={"response":res})
+        return render(request,"manga/manga_home.html",context={'response':res})
+    return render(request,"manga/manga_home.html")

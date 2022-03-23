@@ -1,0 +1,41 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/signup_form.css'%}">
+{% endblock css %}
+{% block accounts %}
+<!-- <div class="me-7"></div> -->
+<div class="box-form">
+	<div class="left">
+		<div class="overlay">
+		<h1>Anime World.</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		Curabitur et est sed felis aliquet sollicitudin</p>
+		{% comment %} <span>
+			<p>login with social media</p>
+			<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+			<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Login with Twitter</a>
+		</span> {% endcomment %}
+		</div>
+	</div>
+		<div class="right">
+		<h5>Sign up</h5>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="inputs">
+				{% csrf_token %}
+                <input type="text" name="username" placeholder="user name" required>
+                <br>
+                <input type="email" placeholder="email" name="email" required>
+                <input type="password" placeholder="password" name="password" required>
+                <br><br>
+                <button type="submit">signup</button>
+            </div>
+        </form>
+			<br><br>
+		<div class="remember-me--forget-password"></div>
+		</div>
+        <br>
+	</div>
+</div>
+
+{% endblock accounts %}
