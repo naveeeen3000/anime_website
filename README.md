@@ -1,2 +1,2 @@
-* Anime and Manga website 
+# Anime and Manga website 
 //still in development
