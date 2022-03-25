@@ -25,10 +25,13 @@
                   </li>
                   
                 </ul>
-                  <a href="{% url 'accounts:login' %}">
-                    <button class="btn btn-outline-success me-2" >Login</button>
-                  </a>
+                  {% if request.session.logged_in %}
+                  <a href="{% url 'accounts:logout' %}"><button class="btn btn-outline-success me-2" >Log out</button></a>
+                  {% else %}
+                    <a href="{% url 'accounts:login' %}"><button class="btn btn-outline-success me-2" >Login</button></a>
                     <a href="{% url 'accounts:signup' %}"><button class="btn btn-outline-success me-3"  > Sign up</button></a>
+                  {% endif %}
+                  
                 
               </div>
             </div>

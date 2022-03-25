@@ -20,12 +20,18 @@
 	</div>
 		<div class="right">
 		<h5>Sign up</h5>
+		{% if exception_message %}
+			<p style="color:red">{{exception_message}}</p>
+		{% endif %}
         <form method="POST" enctype="multipart/form-data">
             <div class="inputs">
 				{% csrf_token %}
-                <input type="text" name="username" placeholder="user name" required>
+				<input type="text" placeholder="Name" name="name" required>
+				<!-- <br> -->
+
+                <!-- <input type="text" name="username" placeholder="user name" required> -->
                 <br>
-                <input type="email" placeholder="email" name="email" required>
+                <input type="email" placeholder="mail" name="mail" required>
                 <input type="password" placeholder="password" name="password" required>
                 <br><br>
                 <button type="submit">signup</button>
