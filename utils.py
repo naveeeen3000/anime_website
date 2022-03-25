@@ -2,7 +2,7 @@ from pymongo import MongoClient
 from decouple import config
 
 def get_database(collection_name):
-    connection_url="mongodb+srv://naveen:{}@cluster0.eobif.mongodb.net/test".format(config("MONGODB_PASSWORD"))
+    connection_url=config("MONGODB_URL").format(config("MONGODB_PASSWORD"))
 
 
     client=MongoClient(connection_url)
