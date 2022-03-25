@@ -12,7 +12,7 @@ def SignupView(request):
         # print(request.POST.get("username"))
         collection=get_database("users")
         salt=bcrypt.gensalt()
-        
+        print("commit")
         hashed_password=bcrypt.hashpw(str(request.POST.get("password")).encode('utf-8'),salt)
         res=collection.insert_one({"username":request.POST.get("username"),
                                 "email":request.POST.get("email"),
