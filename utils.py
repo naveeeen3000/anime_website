@@ -8,7 +8,7 @@ def get_database(collection_name):
     client=MongoClient(connection_url)
 
     if client:
-        database=client['anime_accounts'][collection_name]
+        database=client[config("MONGODB_DB")][collection_name]
         return database
         
     else:return False
