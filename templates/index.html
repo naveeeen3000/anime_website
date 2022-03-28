@@ -1,12 +1,14 @@
-{%extends 'home.html' %}
+{% extends 'home.html' %}
 
 {% block homepage %}
 <div class="search container-xl">
-    <form class="d-flex container">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-</div>
+    <form class="d-flex container" autocomplete='off'>
+        <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search"
+            name='q' id='q' onkeyup="showResult(this.value)" ><span style="font-weight: 400;"></span>
+            <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+        </form>
+    </div>
+    <div id="result"></div>
 
 
 
@@ -26,3 +28,42 @@
     </div>
 </div>
 {% endblock homepage %}
+
+{% block jsfiles %}
+    <script>
+        console.log("IN THE JS")
+
+function showResult(val){
+    console.log("runnig//")
+    res=document.getElementById("result")
+    res.innerHTML=''
+    if(val==''){
+    return;
+    }
+
+    let list=''
+    fetch("https://kitsu.io/api/edge/anime/?filter[text]="+val).then(
+        function(response){
+            return response.json();
+        }
+    ).then(function(data){
+        console.log(data)
+        data=data['data']
+        console.log()
+        for(i=0;i<data.length;i++){
+
+            list+='<li>'+data[i]['attributes']['canonicalTitle']+ '</li>'
+            list+="<img src="+data[i]['attributes']['posterImage']['tiny']+" >"
+        }
+        console.log('RESULT')
+        console.log(list)
+        res.innerHTML='<ul>' +list +'</ul>'
+        return true
+    }).catch(function(err){
+        console.warn("something went wring ",err)
+        return  false
+    })
+
+}
+    </script>
+{% endblock jsfiles %}
