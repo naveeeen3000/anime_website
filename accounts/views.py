@@ -44,6 +44,8 @@ def LoginView(request):
             if bcrypt.checkpw(password,hash_pwd):
                 # login(request)
                 request.session['logged_in']=True
+                print(user['name'])
+                request.session['username']=user['name']
                 return redirect(reverse("home"))
             else:
                 return render(request,"accounts/login.html",context={"error_message":"wrong password"})
