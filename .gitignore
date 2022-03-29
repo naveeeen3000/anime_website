@@ -5,3 +5,4 @@
 populate.py
 scrapper.py
 anime-offline-database.json
+db.sqlite3
