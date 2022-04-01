@@ -2,18 +2,36 @@
 {% load static %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/search_result.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 {% endblock css %}
 {% block homepage %}
-    <div class="search container-xl">
-        <form class="d-flex container" autocomplete='off'>
-            <input class="form-control me-2" id='search-form' type="text" placeholder="Search any manga" aria-label="Search"
-                name='q' id='q'  ><span style="font-weight: 400;"></span>
-                <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-            </form>
+    <div class=" container">
+        <!-- <hr> -->
+        <div class="container h-100" id="">
+            <div class="d-flex justify-content-center h-100">
+              <div class="searchbar" id="searchbar">
+                <input class="search_input" id="search-form" type="text" name="" placeholder="Search any manga">
+                <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                <div id="result" hidden>
+                    <!-- <ul>
+                        <li class="search-item">
+                            <ul>
+                                <li>Naruto</li>
+                                <li>status: Finished</li>
+                                <li>Air date: 2000</li>
+                            </ul>
+                            <img src="https://media.kitsu.io/anime/11/poster_image/tiny-47d378c5faf258491fd1a2025fc1507c.jpeg" alt="">
+                        </li>
+                       
+                    </ul> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
     </div>
-    <div id="result">
-        
-    </div>
+    
     <div class="top-anime ">
         <h3>Top anime</h3>
     </div>
