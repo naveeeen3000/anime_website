@@ -6,13 +6,13 @@
 {% block homepage %}
     <div class="search container-xl">
         <form class="d-flex container" autocomplete='off'>
-            <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search"
-                name='q' id='q' onkeyup="showResult(this.value)" ><span style="font-weight: 400;"></span>
+            <input class="form-control me-2" id='search-form' type="text" placeholder="Search any manga" aria-label="Search"
+                name='q' id='q'  ><span style="font-weight: 400;"></span>
                 <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
             </form>
     </div>
     <div id="result">
-
+        
     </div>
     <div class="top-anime ">
         <h3>Top anime</h3>
