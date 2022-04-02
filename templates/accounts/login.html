@@ -20,12 +20,20 @@
 	</div>
 		<div class="right">
 		<h5>login</h5>
-        <form action="">
+		{% if user_not_found %}
+			<p style="color:red">user not found.</p>
+			<p>not registered? <a href="{% url 'accounts:signup' %}">click here</a></p>
+		{% endif %}
+		{% if error_message %}
+			<p style="color:red">{{error_message}}</p>
+		{% endif %}
+        <form method="POST" enctype="multipart/form-data">
             <div class="inputs">
+				{% csrf_token %}
                 <!-- <input type="text" placeholder="user name" required> -->
                 <br>
-                <input type="email" placeholder="email" required>
-                <input type="password" placeholder="password" required>
+                <input type="email" placeholder="email" name="email" required>
+                <input type="password" placeholder="password" name="password" required>
                 <br><br>
                 <button type="submit">Login</button>
             </div>

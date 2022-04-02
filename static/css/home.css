@@ -1,0 +1,11 @@
+.username p{ 
+    color:aliceblue;
+    font-family: monospace;
+    display:inline-block;
+    margin-bottom: -10px;
+    margin-right: 20px;
+    /* right: 10px; */
+    /* bottom:20px; */
+    /* bottom: 10px; */
+    font-size: large;
+}
