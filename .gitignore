@@ -6,3 +6,6 @@ populate.py
 scrapper.py
 anime-offline-database.json
 db.sqlite3
+GetImages.py
+manga_details.json
+root.txt
