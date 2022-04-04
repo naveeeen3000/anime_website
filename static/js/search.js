@@ -7,7 +7,7 @@ function showResult(val){
         return;
     }
     let list=""
-    fetch("https://kitsu.io/api/edge/anime/?filter[text]="+val).then(
+    fetch("http://127.0.0.1:8000/api/v1/search?q="+val).then(
         function(response){
             return response.json();
         }

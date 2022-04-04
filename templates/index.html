@@ -4,7 +4,10 @@
     <link rel="stylesheet" href="{% static 'css/search_result.css' %}">
     <link rel="stylesheet" href="{% static 'css/search.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    {% block manga_css %}
+    {% endblock manga_css %}
 {% endblock css %}
+
 {% block homepage %}
     <div class=" container">
         <!-- <hr> -->
@@ -31,12 +34,14 @@
           </div>
 
     </div>
-    
+    <h1>homepage block 1</h1>
     <div class="top-anime ">
         <h3>Top anime</h3>
     </div>
     <div class="top-manga">
-        <h3>Top manga</h3>
+        {% block topmanga %}
+        
+        {% endblock topmanga %}
     </div>
 
     <div>
@@ -48,7 +53,8 @@
         </div>
     </div>
 {% endblock homepage %}
-
 {% block jsfiles %}
     <script src="{% static 'js/search.js' %}"></script>
+    {% block manga_js %}
+    {% endblock manga_js %}
 {% endblock jsfiles %}
