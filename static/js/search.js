@@ -1,5 +1,4 @@
 var search=document.getElementById('search-form')
-
 function showResult(val){
     res=document.getElementById("result")
     res.innerHTML=''
@@ -7,20 +6,19 @@ function showResult(val){
         return;
     }
     let list=""
-    fetch("https://kitsu.io/api/edge/anime/?filter[text]="+val).then(
+    fetch("http://127.0.0.1:8000/api/v1/search/?q="+val).then(
         function(response){
             return response.json();
         }
         ).then(function(data){
-            data=data['data'].slice(0,5)
-            // data=data.slice(0,5)
-            // console.log()
+            data=data['data']
+            console.log(data)
             for(i=0;i<data.length;i++){        
                 list+="<li class='search-item'>"   
-                list+='<ul><li><h6>'+data[i]['attributes']['canonicalTitle']+ '</h6></li>'
-                list+='<li><h6>Status: '+data[i]['attributes']['status']+ '</h6></li>'
-                list+='<li><h6>Air Date: '+data[i]['attributes']['startDate']+ '</h6></li></ul>'
-                list+="<img src="+data[i]['attributes']['posterImage']['tiny']+" >"
+                list+='<ul><li><h6>'+data[i]['canonicalTitle']+ '</h6></li>'
+                list+='<li><h6>Status: '+data[i]['status']+ '</h6></li>'
+                list+='<li><h6>Air Date: '+data[i]['startDate']+ '</h6></li></ul>'
+                list+="<img src="+data[i]['posterImage']['tiny']+" >"
                 list+="</li>"
                 list+='<hr>'
             }
